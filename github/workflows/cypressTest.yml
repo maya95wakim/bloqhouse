@@ -1,0 +1,35 @@
+name: Run Cypress test
+on: 
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+jobs:
+    test:
+    env:
+     CYPRESS_username: ${{secrets.USERNAME}}
+     CYPRESS_password: ${{secrets.PASSWORD}}
+        runs-on: ubuntu-latest
+        steps:
+         - name: Get code
+           uses: actions/checkout@v4
+         - name: cache dependencies 
+           uses: actions/cache@v4
+           with:
+             path: ~/.npm
+             key: npm-deps-${{ hashFiles('**/package-lock.json') }}
+         - name: install all depandancies
+           run: npm ci
+         - name: Start the test command
+           run: npx cypress run 
+         - name: merge test files
+           run: npm run merge-report
+         - name: upload test files
+           uses: actions/upload-artifact@v4
+           with: 
+             name: Tests
+             path: |
+                mochareporta
+                cypress/videos
+                cypress/screenshots
+             if-no-files-found: error
