@@ -1,4 +1,3 @@
-import user from '../fixtures/user.JSON'
 import { portfolioNav } from '../support/page-objects/navigation'
 import { portfolio } from '../support/page-objects/portfolio'
 describe('start investing full flow', () => {
