@@ -4,13 +4,13 @@ on:
   push:
     branches:
       - master
+env:
+    CYPRESS_username: ${{secrets.USERNAME}}
+    CYPRESS_password: ${{secrets.PASSWORD}}
 jobs:
     test:
-    env:
-     CYPRESS_username: ${{secrets.USERNAME}}
-     CYPRESS_password: ${{secrets.PASSWORD}}
-        runs-on: ubuntu-latest
-        steps:
+      runs-on: ubuntu-latest
+      steps:
          - name: Get code
            uses: actions/checkout@v4
          - name: cache dependencies 
