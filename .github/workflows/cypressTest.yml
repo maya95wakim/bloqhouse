@@ -29,7 +29,6 @@ jobs:
            with: 
              name: Tests
              path: |
-                mochareporta
+                mochareports
                 cypress/videos
-                cypress/screenshots
              if-no-files-found: error
