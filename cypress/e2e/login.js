@@ -1,4 +1,4 @@
-import user from '../fixtures/user.JSON'
+import user from '../fixtures/user.json'
 import { getLanguage } from '../support/page-objects/helper'
 import {setLocale, translate } from '../support/page-objects/i18n'
 
