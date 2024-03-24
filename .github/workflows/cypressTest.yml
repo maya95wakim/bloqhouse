@@ -33,5 +33,4 @@ jobs:
              path: |
                 mochareports
                 cypress/videos
-             when: always
              if-no-files-found: error

@@ -7,24 +7,8 @@ describe('login', () => {
         cy
             .visit('/')
     })
-    it('should give a success message to login with valid user credentials', () => {
-        cy
-            .get('.common-nav-container')
-            .find('[data-testid="loginButton"]')
-            .click()
-        cy
-            .get('input[name="email"]')
-            .click()
-            .clear()
-            .type(Cypress.env('username'))
-        cy
-            .get('input[name="password"]')
-            .click()
-            .clear()
-            .type(Cypress.env('password'))
-        cy
-            .get('#submitLoginButton')
-            .click()
+    it('should login successfully ', () => {
+        cy.login(Cypress.env('username'),Cypress.env('password'))
         setLocale(getLanguage())
         cy
             .get('.common-nav-container')
