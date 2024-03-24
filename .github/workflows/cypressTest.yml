@@ -23,6 +23,7 @@ jobs:
          - name: Start the test command
            run: npx cypress run 
          - name: merge test files
+           if: always()
            run: npm run merge-report
          - name: upload test files
            uses: actions/upload-artifact@v4
